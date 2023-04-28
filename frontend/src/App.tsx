@@ -8,7 +8,8 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:8000/api/1").then((res) => console.log(res));
+    //axios.get("http://localhost:8000/api/").then((res) => console.log(res));
+    //fetch("http://localhost:8000/api/").then((res) => console.log(res));
   }, []);
 
   return (
