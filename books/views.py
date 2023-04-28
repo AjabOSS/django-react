@@ -1,13 +1,15 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, RetrieveAPIView, ListCreateAPIView, GenericAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.permissions import IsAdminUser
 from .models import Book
 from .serializers import BookListSerializer, BookDetailSerializer
 
 class BookList(ListCreateAPIView):
+    # permission_classes = (IsAdminUser)
     queryset = Book.objects.all()
     serializer_class = BookListSerializer
     
-class BookDetail(RetrieveAPIView):
+class BookDetail(RetrieveUpdateDestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookDetailSerializer
     
